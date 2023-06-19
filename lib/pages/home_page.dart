@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:g_custompainter_polygons_animation/painter/polygon_painter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -12,9 +13,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final size = MediaQuery.of(context).size;
+
+    return Scaffold(
       body: Center(
-        child: Text('Hello World!'),
+        child: CustomPaint(
+          painter: PolygonPainter(sides: 4),
+          child: SizedBox(
+            height: size.width,
+            width: size.width,
+          ),
+        ),
       ),
     );
   }
